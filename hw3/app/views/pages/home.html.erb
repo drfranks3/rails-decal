@@ -1,0 +1,22 @@
+<h1>Hello, Everyone</h1>
+
+<h2>Cats</h2>
+<% @cats.each do |c| %>
+  <p>This is Cat #<%=c.id%>, its name is: <%=c.name%></p>
+<% end %>
+
+<h2>Users</h2>
+<% @users.each do |u| %>
+  <p><%=u.username%> (<%=u.email%>) is <%=u.age%> years old.</p>
+<% end %>
+
+<h2>To-Do Lists</h2>
+<h3>Complete</h3>
+<% @complete.each do |t| %>
+  <p>List (#<%=t.id%>): <%=t.tasks%></p>
+<% end %>
+
+<h3>Incomplete</h3>
+<% @incomplete.each do |t| %>
+  <p>List (#<%=t.id%>): <%=t.tasks%></p>
+<% end %>
