@@ -1,0 +1,11 @@
+<h1>Welcome to the land of Dogs!</h1>
+<% if @error %>
+  <p style="color:red"><strong>ERROR: <%=@error%></strong</p>
+<% elsif @dog %>
+  <p><strong><%=@dog.name%></strong> is <em><%=@dog.age%></em> years old!</p>
+  <p>This dog was found while looking him up in the URL!</p>
+<% else %>
+  <% @dogs.each do |d| %>
+    <p><strong><%=d.name%></strong> is <em><%=d.age%></em> years old!</p>
+  <% end %>
+<% end %>
