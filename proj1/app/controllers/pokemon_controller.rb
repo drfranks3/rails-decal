@@ -1,11 +1,11 @@
 class PokemonController < ApplicationController
 
-  def capture()
+  def capture
     find().update(trainer_id: current_trainer.id)
     redirect_to ""
   end
 
-  def damage()
+  def damage
     pokemon = find()
     if pokemon.health > 0
       pokemon.update(health: pokemon.health - 10)
@@ -13,7 +13,7 @@ class PokemonController < ApplicationController
     redirect_to :back
   end
 
-  def heal()
+  def heal
     pokemon = find()
     if pokemon.health < 100
       pokemon.update(health: pokemon.health + 10)
@@ -21,18 +21,18 @@ class PokemonController < ApplicationController
     redirect_to :back
   end
 
-  def find()
+  def find
     return Pokemon.find(params[:id])
   end
 
-  def new()
+  def new
   end
 
-  def create()
+  def create
     if (params.include?(:pokemon))
       submit = params[:pokemon]
-      @pokemon = Pokemon.create name: submit[:name], trainer_id: current_trainer.id, level: 1, health: 100
-      if @pokemon.errors
+      @pokemon = Pokemon.create name: submit[:name], trainer_id: current_trainer.id, level: 1, health: 100, EXP: 0
+      if !@pokemon.errors.blank?
         flash[:error] = @pokemon.errors.full_messages.to_sentence
         redirect_to :back
       else
