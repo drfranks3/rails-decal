@@ -1,0 +1,22 @@
+<h3>Trainer</h3>
+<p>Name: <%= @trainer.name if @trainer.name %></p>
+<p>Email: <%= @trainer.email if @trainer.email %></p>
+<td>
+  <% if @party.length > 0 %>
+    <p>Pokemon: </p>
+    <% @party.each do |poke| %>
+      <% if (poke.health == 0 && poke.trainer_id == current_trainer.id) || poke.health > 0 %>
+        <%= poke.name%> (Lv. <%= poke.level %>) - Health: <%= poke.health %>HP<br/>
+        <%= button_to "Damage!", damage_path(id: poke.id), :class => "button medium", :method => :patch %>
+      <% end %>
+      <% if poke.health < 100 && @trainer.id == current_trainer.id %>
+        <%= button_to "Heal!", heal_path(id: poke.id), :class => "button medium", :method => :patch %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>This trainer has no healthy Pokemon!</p>
+  <% end %>
+  <% if @trainer.id == current_trainer.id %>
+    <%= button_to "Create New Pokemon!", pokemon_new_path(), :class => "button medium", :method => :get %>
+  <% end %>
+</td>
