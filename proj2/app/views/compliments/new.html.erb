@@ -1,0 +1,15 @@
+<% header "Compose a Compliment" %>
+
+<%= form_for @compliment do |f| %>
+  <div class="form-group">
+    <%= f.label :to %>
+    <%= f.text_field :to, autocomplete: 'off', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :text %>
+    <%= f.text_field :text, autocomplete: 'off', class: 'form-control' %>
+  </div>
+
+  <%= f.submit "Send Compliment", class: 'btn btn-primary' %>
+<% end %>
