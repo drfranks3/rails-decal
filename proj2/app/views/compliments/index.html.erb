@@ -1,0 +1,7 @@
+<% header "My Compliments" %>
+
+<% @mine.each do |c| %>
+  <p>From: <%= User.find(c.from).name %></p>
+  <p>Text: <%= c.text %></p>
+  <hr/>
+<% end %>

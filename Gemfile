@@ -26,5 +26,6 @@ gem 'devise', '~> 3.5', '>= 3.5.6'
 
 gem 'rest-client'
 gem 'google-api-client'
+gem 'geocoder'
 
 end
