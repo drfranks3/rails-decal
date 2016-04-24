@@ -1,7 +1,7 @@
 require 'csv'
 
 desc "Import sentiments from csv file"
-task :import => [:environment] do
+task :import_sentiments => [:environment] do
 
   file = "app/assets/sentiments.csv"
 
