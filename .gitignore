@@ -72,4 +72,7 @@ public/tmp
 # Ignore answers.txt
 answers.txt
 
+.DS_Store
+*/.DS_Store
+
 >>>>>>> 2354bfc13461104c201cde638d8b2bccca6cc94b
