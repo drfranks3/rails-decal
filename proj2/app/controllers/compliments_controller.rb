@@ -30,7 +30,26 @@ class ComplimentsController < ApplicationController
         redirect_to :back
       else
         # next attempt to insert the compliment
+
+        words = submit[:text].gsub(/\s+/m, ' ').strip.split(" ") # split the sentence into array of words
+
+        sentiment_value = 0
+        words.each do |w|
+          if Sentiment.find_by_word(w) != nil # check whether the word is in our db
+            sentiment_value += Sentiment.find_by_word(w).sentiment # add the sentiment value to our total
+          else
+            sentiment_value += 0
+          end
+        end
+
+        if sentiment_value < 0
+          flash['notice'] = 'Please send a more positive compliment.'
+          redirect_to :back
+          return
+        end
+
         @compliment = Compliment.create location: "#{request.location.city} #{request.location.state}", from: current_user.id, to: to, text: submit[:text]
+
         if !@compliment.errors.blank?
           flash['error'] = @compliment.errors.full_messages.to_sentence
           redirect_to :back
