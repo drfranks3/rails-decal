@@ -7,6 +7,7 @@ task :import => [:environment] do
 
   CSV.foreach(file, :headers => false) do |row|
     Sentiment.create!(word: row[0], sentiment: row[1])
+    puts "Created #{row[0]} -> #{row[1]}"
   end
 
 end
