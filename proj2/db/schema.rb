@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20160419110213) do
 
   create_table "compliments", force: :cascade do |t|
-    t.integer  "ip"
     t.integer  "from"
     t.integer  "to"
+    t.string   "location"
     t.string   "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

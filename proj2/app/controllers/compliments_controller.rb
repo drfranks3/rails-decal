@@ -30,10 +30,7 @@ class ComplimentsController < ApplicationController
         redirect_to :back
       else
         # next attempt to insert the compliment
-
-
-
-        @compliment = Compliment.create ip: request.remote_ip, from: current_user.id, to: to, text: submit[:text]
+        @compliment = Compliment.create location: "#{request.location.city} #{request.location.state}", from: current_user.id, to: to, text: submit[:text]
         if !@compliment.errors.blank?
           flash['error'] = @compliment.errors.full_messages.to_sentence
           redirect_to :back
