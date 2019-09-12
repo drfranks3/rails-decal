@@ -52,7 +52,7 @@ gem 'geocoder'
 # Simple Form makes forms easy
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 # Devise assists with authentication
-gem 'devise', '~> 3.5', '>= 3.5.6'
+gem 'devise', '~> 4.7'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 # Autoprefixer adds appropriate vendor prefixes
